@@ -3,5 +3,5 @@ provider "aws" {
 }
 
 module "s3" {
-  source = "./s3"
+  source = "git::https://github.com/380-ka/terra-rep2.git//S3"
 }
