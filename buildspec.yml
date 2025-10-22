@@ -9,6 +9,5 @@ phases:
       - mv terraform /usr/local/bin/
   build:
     commands:
-      - cd lib
       - terraform init
       - terraform apply -auto-approve
