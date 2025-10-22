@@ -1,7 +1,3 @@
-variable "bucket_name" {
-  type = string
-}
-
 resource "aws_s3_bucket" "app_bucket" {
-  bucket = var.bucket_name
+  bucket = "20251022-k-terra-app-bk"
 }
