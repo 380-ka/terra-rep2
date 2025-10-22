@@ -1,17 +1,18 @@
-
 version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      python: 3.8
+  pre_build:
     commands:
-      - curl -O https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip
-      - unzip terraform_1.5.0_linux_amd64.zip
-      - mv terraform /usr/local/bin/
+      - echo "Starting Terraform Init"
+      - terraform init
   build:
     commands:
-      - echo "Current directory: $(pwd)"
-      - echo "Listing files:"
-      - ls -la
-      - if [ -d "lib" ]; then cd lib; fi
-      - terraform init
+      - echo "Running Terraform Apply"
       - terraform apply -auto-approve
+
+artifacts:
+  files:
+    - '**/*'
