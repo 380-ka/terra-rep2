@@ -9,5 +9,9 @@ phases:
       - mv terraform /usr/local/bin/
   build:
     commands:
+      - echo "Current directory: $(pwd)"
+      - echo "Listing files:"
+      - ls -la
+      - if [ -d "lib" ]; then cd lib; fi
       - terraform init
       - terraform apply -auto-approve
